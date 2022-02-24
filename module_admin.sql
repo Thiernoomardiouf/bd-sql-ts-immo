@@ -37,7 +37,7 @@ CREATE TABLE `user_compte`
 CREATE TABLE `pays`
 (
     `id_pays` INT NOT NULL AUTO_INCREMENT,
-    `libelle_pays` VARCHAR(65) NOT NULL,
+    `nom_pays` VARCHAR(65) NOT NULL,
     `indicatif_pays` VARCHAR(65) NOT NULL,
     `continent_pays` VARCHAR(65) NOT NULL,
     PRIMARY KEY(`id_pays`) 
@@ -48,7 +48,7 @@ CREATE TABLE `pays`
 CREATE TABLE `region`
 (
     `id_region` INT NOT NULL AUTO_INCREMENT,
-    `libelle_region` VARCHAR(65) NOT NULL,
+    `nom_region` VARCHAR(65) NOT NULL,
     `id_pays` INT NOT NULL,
     PRIMARY KEY(`id_region`),
     FOREIGN KEY(`id_pays`) REFERENCES `pays`(`id_pays`) ON DELETE CASCADE
@@ -59,7 +59,7 @@ CREATE TABLE `region`
 CREATE TABLE `commune`
 (
     `id_commune` INT NOT NULL AUTO_INCREMENT,
-    `libelle_commune` VARCHAR(65) NOT NULL,
+    `nom_commune` VARCHAR(65) NOT NULL,
     `id_region` INT NOT NULL,
     PRIMARY KEY(`id_commune`),
     FOREIGN KEY(`id_region`) REFERENCES `region`(`id_region`) ON DELETE CASCADE 
@@ -69,7 +69,7 @@ CREATE TABLE `commune`
 CREATE TABLE `quartier`
 (
     `id_quartier` INT NOT NULL AUTO_INCREMENT,
-    `libelle_quartier` VARCHAR(65) NOT NULL,
+    `nom_quartier` VARCHAR(65) NOT NULL,
     `id_commune` INT NOT NULL,
     PRIMARY KEY(`id_quartier`),
     FOREIGN KEY(`id_commune`) REFERENCES `commune`(`id_commune`) ON DELETE CASCADE 
